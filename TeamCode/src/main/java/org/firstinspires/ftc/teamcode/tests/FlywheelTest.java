@@ -41,7 +41,7 @@ public class FlywheelTest extends OpMode {
     double velocity = flywheel.getVelocity(); // encoder ticks per second
     if (Math.abs(velocity) > Math.abs(maxSeen)) maxSeen = velocity;
 
-    telemetry.addData("Power (D-pad up/down)", "%.1f", power);
+    telemetry.addData("Power (D-pad up/down)", "%.2f", power);
     telemetry.addData("Running (hold Cross)", running);
     telemetry.addData("Velocity (ticks/sec)", "%.0f", velocity);
     telemetry.addData("Max velocity seen", "%.0f", maxSeen);
