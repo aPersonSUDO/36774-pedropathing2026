@@ -29,8 +29,8 @@ public class FlywheelTest extends OpMode {
   @Override
   public void loop() {
     // D-pad up/down: change power by 0.1 per press (0.0 to 1.0)
-    if (gamepad1.dpad_up && !prevUp) power = Math.min(1.0, power + 0.1);
-    if (gamepad1.dpad_down && !prevDown) power = Math.max(0.0, power - 0.1);
+    if (gamepad1.dpad_up && !prevUp) power = Math.min(1.0, power + 0.05);
+    if (gamepad1.dpad_down && !prevDown) power = Math.max(0.0, power - 0.05);
     prevUp = gamepad1.dpad_up;
     prevDown = gamepad1.dpad_down;
 
