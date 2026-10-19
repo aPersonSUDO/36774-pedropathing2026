@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -19,12 +20,12 @@ public class Intake {
   public static double MAIN_POWER  = 0.8;
   public static double SERVO_POWER = 1.0;
 
-  private final DcMotor main;
+  private final DcMotorEx main;
   private final CRServo left;
   private final CRServo right;
 
   public Intake(HardwareMap hardwareMap) {
-    main  = hardwareMap.get(DcMotor.class, MAIN_NAME);
+    main  = hardwareMap.get(DcMotorEx.class, MAIN_NAME);
     left  = hardwareMap.get(CRServo.class, LEFT_NAME);
     right = hardwareMap.get(CRServo.class, RIGHT_NAME);
 
@@ -57,6 +58,10 @@ public class Intake {
 
   // ---- Ivy commands (usable in autos) ----
 
+  /** Main intake motor speed in encoder ticks per second (motor shaft). */
+  public double getMainTicksPerSec() {
+    return main.getVelocity();
+  }
   public Command inCommand() {
     return instant(this::in);
   }
